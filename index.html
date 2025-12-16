@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to PYQS-ISK Project...</title>
+    <title>Redirecting to Project...</title>
     
-    <!-- Meta refresh redirect (3 seconds for UX) -->
-    <meta http-equiv="refresh" content="3; url=https://pyqs-isk.pages.dev">
+    <!-- Meta refresh redirect (2 seconds) -->
+    <meta http-equiv="refresh" content="2; url=https://pyqs-isk.pages.dev">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://pyqs-isk.pages.dev">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="PYQS-ISK Project">
+    <meta property="og:title" content="https://pyqs-isk.pages.dev">
     <meta property="og:url" content="https://pyqs-isk.pages.dev">
     
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -20,7 +20,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -34,7 +34,7 @@
         
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
         
         @keyframes progress {
@@ -45,7 +45,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
@@ -59,6 +59,16 @@
             75% { transform: translateY(5px) rotate(-1deg); }
         }
         
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.4; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
         .animate-pulse-custom {
             animation: pulse 2s ease-in-out infinite;
         }
@@ -68,67 +78,90 @@
         }
         
         .animate-progress {
-            animation: progress 3s linear forwards;
+            animation: progress 2s linear forwards;
         }
         
         .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeInUp 0.6s ease-out forwards;
         }
         
         .animate-float {
             animation: float 3s ease-in-out infinite;
         }
         
+        .animate-shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        
         .delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .delay-150 { animation-delay: 0.15s; opacity: 0; }
         .delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .delay-250 { animation-delay: 0.25s; opacity: 0; }
         .delay-300 { animation-delay: 0.3s; opacity: 0; }
-        .delay-400 { animation-delay: 0.4s; opacity: 0; }
-        .delay-500 { animation-delay: 0.5s; opacity: 0; }
+        .delay-350 { animation-delay: 0.35s; opacity: 0; }
         
         .glass {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
         
-        .linkedin-gradient {
-            background: linear-gradient(135deg, #0077B5 0%, #00A0DC 50%, #0077B5 100%);
+        .project-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
         }
         
         .bg-pattern {
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(0, 119, 181, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 160, 220, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(0, 119, 181, 0.05) 0%, transparent 30%);
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(168, 85, 247, 0.05) 0%, transparent 30%);
+        }
+        
+        .icon-ring {
+            position: relative;
+        }
+    
+        
+        .icon-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            opacity: 0.3;
+            animation: ripple 2s ease-out infinite;
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 min-h-screen flex items-center justify-center p-4 bg-pattern overflow-hidden">
+<body class="bg-gradient-to-br from-slate-50 via-indigo-50/50 to-purple-50/50 min-h-screen flex items-center justify-center p-4 bg-pattern overflow-x-hidden">
     
     <!-- Floating Background Elements -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-20 left-10 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-20 right-10 w-80 h-80 bg-cyan-200/30 rounded-full blur-3xl animate-float" style="animation-delay: -1.5s;"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-100/40 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 left-10 w-64 h-64 bg-indigo-200/30 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl animate-float" style="animation-delay: -1.5s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-violet-100/40 rounded-full blur-3xl"></div>
     </div>
     
-    <div class="relative z-10 w-full max-w-lg">
+    <div class="relative z-10 w-full max-w-lg my-auto">
         <!-- Main Card -->
-        <div class="glass rounded-3xl shadow-2xl shadow-blue-500/10 overflow-hidden border border-white/50">
+        <div class="glass rounded-3xl shadow-2xl shadow-indigo-500/10 overflow-hidden border border-white/50">
             
-            <!-- LinkedIn Header Banner -->
-            <div class="linkedin-gradient p-6 relative overflow-hidden">
+            <!-- Header Banner -->
+            <div class="project-gradient p-6 relative overflow-hidden">
+                <div class="absolute inset-0 animate-shimmer"></div>
                 <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
                 <div class="relative flex items-center gap-4">
-                    <!-- LinkedIn Icon -->
-                    <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-lg animate-fade-in-up">
-                        <svg class="w-8 h-8 text-[#0077B5]" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <!-- Project Icon -->
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg animate-fade-in-up">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
                     </div>
                     <div class="animate-fade-in-up delay-100">
-                        <p class="text-white/80 text-sm font-medium">Welcome from</p>
-                        <h2 class="text-white text-xl font-bold">LinkedIn</h2>
+                        <p class="text-white/80 text-sm font-medium">https://pyqs-isk.pages.dev</p>
+                        <h2 class="text-white text-xl font-bold">Project Redirect</h2>
                     </div>
                 </div>
             </div>
@@ -136,8 +169,8 @@
             <!-- Content -->
             <div class="p-8 text-center">
                 <!-- Icon -->
-                <div class="mb-6 animate-fade-in-up delay-200">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-xl shadow-blue-500/30 animate-bounce-custom">
+                <div class="mb-6 animate-fade-in-up delay-150">
+                    <div class="icon-ring w-20 h-20 mx-auto bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full flex items-center justify-center shadow-xl shadow-indigo-500/30 animate-bounce-custom">
                         <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
                         </svg>
@@ -145,77 +178,66 @@
                 </div>
                 
                 <!-- Title -->
-                <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3 animate-fade-in-up delay-300">
-                    Taking You to the Project
+                <h1 class="text-2xl md:text-3xl font-extrabold text-gray-800 mb-3 animate-fade-in-up delay-200">
+                    Almost There!
                 </h1>
                 
                 <!-- Subtitle -->
-                <p class="text-gray-500 mb-6 animate-fade-in-up delay-400">
-                    You're being redirected to project...
+                <p class="text-gray-500 mb-6 animate-fade-in-up delay-250">
+                    Redirecting to project...
                 </p>
                 
                 <!-- URL Display -->
-                <div class="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-100 animate-fade-in-up delay-500">
+                <div class="bg-gradient-to-r from-gray-50 to-slate-50 rounded-full p-4 mb-6 border border-gray-100 animate-fade-in-up delay-300">
                     <div class="flex items-center justify-center gap-2">
-                        <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                             <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                             </svg>
                         </div>
-                        <code class="text-gray-700 font-mono text-sm md:text-base">https://pyqs-isk.pages.dev</code>
+                        <code class="text-gray-700 font-mono text-sm md:text-base font-medium">pyqs-isk.pages.dev</code>
                     </div>
                 </div>
                 
                 <!-- Progress Bar -->
-                <div class="mb-6">
+                <div class="mb-6 animate-fade-in-up delay-350">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-xs font-medium text-gray-500">Redirecting...</span>
-                        <span id="countdown" class="text-xs font-bold text-blue-600">3s</span>
+                        <span id="countdown" class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full">2s</span>
                     </div>
-                    <div class="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
-                        <div class="h-full linkedin-gradient rounded-full animate-progress"></div>
+                    <div class="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                        <div class="h-full project-gradient rounded-full animate-progress"></div>
                     </div>
                 </div>
                 
                 <!-- Manual Link -->
                 <a href="https://pyqs-isk.pages.dev" 
-                   class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300">
+                   class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40 hover:scale-105 transition-all duration-300 group">
                     <span>Go Now</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                     </svg>
                 </a>
             </div>
-            
-            <!-- Note Section -->
-            <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-t border-amber-100 p-5">
-                <div class="flex gap-3">
-                    <div class="flex-shrink-0">
-                        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
-                            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="text-left">
-                        <h3 class="font-semibold text-amber-800 text-sm mb-1">Note</h3>
-                        <p class="text-amber-700 text-sm leading-relaxed">
-                            This redirect page is specially designed for visitors coming from <strong>LinkedIn</strong> to access the PYQS-ISK project. Thank you for your interest!
-                        </p>
-                    </div>
-                </div>
-            </div>
         </div>
-        
         <!-- Footer -->
-        <p class="text-center text-gray-400 text-xs mt-6">
-            © 2024 PYQS-ISK Project • Secure Redirect
-        </p>
+        <p class="text-center mt-6 mb-4"><span class="footer-text text-xs text-gray-500 sm:text-center"
+                    style="font-family: 'JetBrains Mono', monospace; font-size: 13.50px; padding-top: 4px;">Made With<svg
+                        class="mx-1 inline-block" style="height: 15px; width: 15px; margin-top: -3px;"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z"
+                                fill="#e24040"></path>
+                        </g>
+                    </svg>By ISK<br>
+                </span></p>
     </div>
-
     <script>
-        // Countdown timer
-        let seconds = 3;
+        // Countdown timer - 2 seconds
+        let seconds = 2;
         const countdownEl = document.getElementById('countdown');
         
         const countdown = setInterval(() => {
@@ -223,17 +245,19 @@
             if (seconds > 0) {
                 countdownEl.textContent = seconds + 's';
             } else {
-                countdownEl.textContent = 'Redirecting...';
+                countdownEl.textContent = 'Going...';
+                countdownEl.classList.remove('bg-indigo-50', 'text-indigo-600');
+                countdownEl.classList.add('bg-green-50', 'text-green-600');
                 clearInterval(countdown);
                 // Perform redirect
                 window.location.replace("https://pyqs-isk.pages.dev");
             }
         }, 1000);
         
-        // Fallback redirect after 3.5 seconds
+        // Fallback redirect after 2.5 seconds
         setTimeout(() => {
             window.location.href = "https://pyqs-isk.pages.dev";
-        }, 3500);
+        }, 2500);
     </script>
 </body>
 </html>
